@@ -1,0 +1,43 @@
+<% layout('layout/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Create Customer</h1>
+        <div class="col-6 offset-3">
+            <form action="/customer/create" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name: </label>
+                    <input class="form-control" type="text" name="customer[name]" id="name" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email: </label>
+                    <input class="form-control" type="email" name="customer[email]" id="email" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="number">Number: </label>
+                    <input class="form-control" type="text" name="customer[number]" id="number" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="px-3 btn btn-success" type="submit">Submit</button>
+                    <button class="px-3 ml-2 btn btn-primary"><a class="list-style-2" href="/">Go Back</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+

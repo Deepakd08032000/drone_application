@@ -1,0 +1,42 @@
+<% layout('layout/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Edit Customer</h1>
+        <div class="col-6 offset-3">
+            <form action="/customer/<%=customer._id%>/edit" method="POST" class="validated-form" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name: </label>
+                    <input class="form-control" type="text" name="customer[name]" id="name" value="<%=customer.name%>" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email: </label>
+                    <input class="form-control" type="email" name="customer[email]" id="email" value="<%=customer.email%>" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="number">Number: </label>
+                    <input class="form-control" type="text" name="customer[number]" id="number" value="<%=customer.number%>" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="px-3 btn btn-success" type="submit">Edit Customer</button>
+                    <button class="px-3 ml-2 btn btn-primary"><a style="text-decoration: none; color: #fff;" href="/">Go Back</a></button>
+                </div>
+            </form>
+        </div>
+    </div>

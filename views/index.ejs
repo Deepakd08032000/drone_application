@@ -1,0 +1,25 @@
+<%layout('layout/boilerplate')%>
+    <div class="row">
+        <div class="col-4 offset-1 text-center">
+            <div>
+                <h2>All Customers</h2>
+                <ul class="list-group mt-3">
+                    <% for(let customer of customers){%>
+                        <li class="list-group-item"><a class="list-style-1" href="/customer/<%=customer._id%>"><%=customer.name%></a></li>
+                    <%}%>
+                </ul>
+                <button class="mt-4 btn btn-success"><a class="list-style-2" href="/customer/create" >Create customer</a></button>
+            </div>
+        </div>
+        <div class="col-4 offset-1 text-center">
+            <div>
+                <h2>All Orders</h2>
+                <ul class="list-group mt-3">
+                    <% for(let order of orders){%>
+                        <li class="list-group-item"><a class="list-style-1" href="/order/<%=order._id%>"><%=order.drone_shot%> by <b><%=order.customer.name%></b></a></li>
+                    <%}%>
+                </ul>
+                <button class="mt-4 btn btn-success"><a class="list-style-2" href="/order/new" >Create order</a></button>
+            </div>
+        </div>
+    </div>

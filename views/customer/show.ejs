@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate') %>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div class="card mb-3">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="image" srcset="">
+                <div class="card-header">
+                    <h4>ID: <%=customer._id%></h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted"><b>Name:</b> <%= customer.name%></li>
+                    <li class="list-group-item"><b>Email:</b> <%= customer.email%></li>
+                    <li class="list-group-item"><b>Phone Number: </b><%= customer.number%></li>
+                </ul>
+                <div class="card-body">
+                    <h6>Orders</h6>
+                    <%= customer.orders.length > 0 ? '' : 'No Orders' %>
+                    <ul class="list-group list-group-numbered">
+                        <% for(let order of customer.orders){ %>
+                            <li class="list-group-item"><a class="list-style-1" href="/order/<%=order._id%>"><%=order.drone_shot%></a></li>
+                        <%}%>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary"><a class="list-style-2" href="/">Home Page</a></button>
+                    <button class="btn btn-warning"><a class="list-style-2" href="/customer/<%=customer._id%>/edit">Edit Details</a></button>
+                    <form class="d-inline" action="/customer/<%=customer._id%>/delete?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

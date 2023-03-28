@@ -1,0 +1,71 @@
+<% layout('layout/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Create Customer</h1>
+        <div class="col-6 offset-3">
+            <form method="POST" action="/order/new" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="drone">Choose a drone:</label>
+                    <select class="form-control" name="order[drone_shot]" id="drone" required>
+                        <option value="Multi-Rotor Drone">Multi-Rotor Drone</option>
+                        <option value="Fixed-Wing Drone">Fixed-Wing Drone</option>
+                        <option value="Single-Rotor Drone">Single-Rotor Drone</option>
+                        <option value="Fixed-Wing Hybrid Drone">Fixed-Wing Hybrid Drone</option>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="customer">Customer: </label>
+                    <select class="form-control" name="order[customer]" id="customer" required>
+                        <% for(let customer of customers){ %>
+                            <option value="<%=customer._id%>"><%=customer.name%></option>
+                        <% } %>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="start_time">Start Time</label>
+                    <input class="form-control" type="datetime-local" name="order[start_time]" id="start_time" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="end_time">End Time</label>
+                    <input class="form-control" type="datetime-local" name="order[end_time]" id="end_time" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="order[location]" id="location" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid Input!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="px-3 ml-2 btn btn-primary"><a class="list-style-2" href="/">Go Back</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
